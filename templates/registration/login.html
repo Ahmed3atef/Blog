@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Log In</h2>
+<div class='form-layout'> 
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-secondary" type="submit">Log In</button>
+    <div><a href="{% url "password_reset" %}"> Forgot your password?</a></div>
+    <p>or: <a href="{% url "signup" %}" class="footer-link">SignUp</a></p>
+    </form>
+</div>
+{% endblock content %}
+

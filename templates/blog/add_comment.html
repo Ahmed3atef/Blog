@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2>Add a comment</h2>
+    <div class="form-layout">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <button type="submit">Add Comment</button>
+    </form>
+    </div>
+    <a class="detail-link detail-back-home" href="{% url 'post_detail' pk=pk %}">Back to Post</a>
+{% endblock %}

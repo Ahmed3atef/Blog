@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+    <div class="card " style="width: auto;">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+        {% endif %}
+        <div class="card-body">
+            <p class="card-text">{{ post.body | safe }}</p>
+        </div>
+        <div class="detail-links">
+            {% if user.is_authenticated and user == post.author %}
+                <a class="detail-link detail-update-post" href="{% url 'post_edit' post.pk %}">Edit Blog Post</a>
+                <a class="detail-link detail-delete-post" href="{% url "post_delete" post.pk %}">Delete</a>
+            {% endif %}
+            <a class="detail-link detail-back-home" href="{% url 'index' %}">Back to Home</a>
+        </div>  
+        <div class="card-footer">
+            <h5>Comments</h5>
+            <div class="container mt-2">
+                <div class="input-group-append">
+                    <input type="text" class="form-control" id="inputContent" placeholder="Enter your comment">
+                    <button class="btn btn-primary" id="comment-submit">Send</button>
+                </div>
+                
+            </div>
+            {% for comment in post.comments.all %}
+            <div class='card'>
+                <p><span class="font-weight-bold"><a class="anchours" href="{% url 'profile' comment.author.username %}">{{ comment.author }}</a> &middot;</span>
+                    {{ comment.comment | safe }}
+                {% if  comment.author == user %}
+                    <button id="comment-delete" value="{{comment.pk}}"><i class="fas fa-trash"></i></button>
+                {% endif %}
+                </p>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
