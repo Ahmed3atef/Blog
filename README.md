@@ -92,9 +92,9 @@ API Endpoints
 The project includes a RESTful API built with Django REST Framework. Here are some example endpoints:
 
 
--   **Create a new blog post**: `POST /api/send-comment/{id}`
+-   **Create a new blog post comment**: `POST /api/send-comment/{id}`
 
--   **Delete a blog post**: `DELETE /api/delete-comment/{id}/`
+-   **Delete a blog post comment**: `DELETE /api/delete-comment/{id}/`
 
 Contributing
 ------------
