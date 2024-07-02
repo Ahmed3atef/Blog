@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-This repository contains the source code for my personal website. It is built using Django, Django REST Framework, and Bootstrap 4, providing an elegant and responsive design for showcasing my portfolio, blog posts, and other personal information.
+This repository contains the source code for Blog website. It is built using Django, Django REST Framework, and Bootstrap 4, providing an elegant and responsive design for showcasing my portfolio, blog posts, and other personal information.
 
 ## Table of Contents
 
